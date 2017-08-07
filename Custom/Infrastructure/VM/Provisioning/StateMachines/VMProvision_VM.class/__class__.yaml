@@ -1,0 +1,493 @@
+---
+object_type: class
+version: 1.0
+object:
+  attributes:
+    description: Factory State Machines
+    display_name: 
+    name: VMProvision_VM
+    type: 
+    inherits: 
+    visibility: 
+    owner: 
+  schema:
+  - field:
+      aetype: state
+      name: CustomizeRequest
+      display_name: 
+      datatype: string
+      priority: 1
+      owner: 
+      default_value: "/Infrastructure/VM/Provisioning/StateMachines/Methods/CustomizeRequest#${/#miq_provision.source.vendor}"
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Customizing Request')
+      on_exit: update_provision_status(status => 'Customized Request')
+      on_error: update_provision_status(status => 'Error Customizing Request')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: ValidateProjID
+      display_name: 
+      datatype: string
+      priority: 2
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Validating Project ID')
+      on_exit: update_provision_status(status => 'Validated Project ID')
+      on_error: update_provision_status(status => 'Error Validating Project ID')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: ValidateGroup
+      display_name: 
+      datatype: string
+      priority: 3
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Validaing User')
+      on_exit: update_provision_status(status => 'Validaied User')
+      on_error: update_provision_status(status => 'Error Validaing User')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: CreateCRQ
+      display_name: 
+      datatype: string
+      priority: 4
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Creating Change Request')
+      on_exit: update_provision_status(status => 'Created Change Request')
+      on_error: update_provision_status(status => 'Error Creating Change Request')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: Placement
+      display_name: 
+      datatype: string
+      priority: 5
+      owner: 
+      default_value: "/Infrastructure/VM/Provisioning/Placement/default#${/#miq_provision.source.vendor}"
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Starting Placement')
+      on_exit: update_provision_status(status => 'Finished Placement')
+      on_error: update_provision_status(status => 'Error in Placement')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: CreateEPG
+      display_name: 
+      datatype: string
+      priority: 6
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Creating EPG')
+      on_exit: update_provision_status(status => 'Created EPG')
+      on_error: update_provision_status(status => 'Error Creating EPG')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: AcquireIPAddress
+      display_name: 
+      datatype: string
+      priority: 7
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Acquiring IP Address')
+      on_exit: update_provision_status(status => 'Acquired IP Address')
+      on_error: update_provision_status(status => 'Error Acquiring IP Address')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: ConfigureFirewall
+      display_name: 
+      datatype: string
+      priority: 8
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Configuring Firewall')
+      on_exit: update_provision_status(status => 'Configured Firewall')
+      on_error: update_provision_status(status => 'Error Configuring Firewall')
+      max_retries: 
+      max_time: 
+  - field:
+      aetype: state
+      name: AddNics
+      display_name: 
+      datatype: string
+      priority: 9
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Adding VM NICs')
+      on_exit: update_provision_status(status => 'Added VM NICs')
+      on_error: update_provision_status(status => 'Error Adding VM NICs')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: PreProvision
+      display_name: 
+      datatype: string
+      priority: 10
+      owner: 
+      default_value: "/Infrastructure/VM/Provisioning/StateMachines/Methods/PreProvision#${/#miq_provision.source.vendor}"
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Applying PreProvision Customizations')
+      on_exit: update_provision_status(status => 'Applied PreProvision Customizations')
+      on_error: update_provision_status(status => 'Error Applying PreProvision Customizations')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: Provision
+      display_name: 
+      datatype: string
+      priority: 11
+      owner: 
+      default_value: "/Infrastructure/VM/Provisioning/StateMachines/Methods/Provision"
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Creating VM')
+      on_exit: update_provision_status(status => 'Creating VM')
+      on_error: update_provision_status(status => 'Error Creating VM')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: CheckProvisioned
+      display_name: 
+      datatype: string
+      priority: 12
+      owner: 
+      default_value: "/Infrastructure/VM/Provisioning/StateMachines/Methods/CheckProvisioned"
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: 
+      on_exit: update_provision_status(status => 'Creating VM')
+      on_error: update_provision_status(status => '${/#ae_reason}')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: PostProvision
+      display_name: 
+      datatype: string
+      priority: 13
+      owner: 
+      default_value: "/Infrastructure/VM/Provisioning/StateMachines/Methods/PostProvision#${/#miq_provision.source.vendor}"
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Applying PostProvision Customizations')
+      on_exit: update_provision_status(status => 'Applied PostProvision Customizations')
+      on_error: update_provision_status(status => 'Error Applying PostProvision Customizations')
+      max_retries: 
+      max_time: 
+  - field:
+      aetype: state
+      name: SetVMSize
+      display_name: 
+      datatype: string
+      priority: 14
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Setting VM Size')
+      on_exit: update_provision_status(status => 'Set VM Size')
+      on_error: update_provision_status(status => 'Error Setting VM Size')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: AddDisks
+      display_name: 
+      datatype: string
+      priority: 15
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Adding VM Disks')
+      on_exit: update_provision_status(status => 'Added VM Disks')
+      on_error: update_provision_status(status => 'Error Adding VM Disks')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: UpdateCoreOS
+      display_name: 
+      datatype: string
+      priority: 16
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Updating Operating System')
+      on_exit: update_provision_status(status => 'Updated Operating System')
+      on_error: update_provision_status(status => 'Error Updating Operating System')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: InstallSystemsSoftware
+      display_name: 
+      datatype: string
+      priority: 17
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Installing Systems Software')
+      on_exit: update_provision_status(status => 'Installed Systems Software')
+      on_error: update_provision_status(status => 'Error Installing Systems Software')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: ConfigureVM
+      display_name: 
+      datatype: string
+      priority: 18
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Configuring VM')
+      on_exit: update_provision_status(status => 'Configured VM')
+      on_error: update_provision_status(status => 'Error Configuring VM')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: InstallApplication
+      display_name: 
+      datatype: string
+      priority: 19
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Installing Application')
+      on_exit: update_provision_status(status => 'Installed Application'')
+      on_error: update_provision_status(status => 'Error Installing Application'')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: RegisterCMDB
+      display_name: 
+      datatype: string
+      priority: 20
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Registering CMDB')
+      on_exit: update_provision_status(status => 'Registered CMDB')
+      on_error: update_provision_status(status => 'Error Registering CMDB')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: UpdateCRQ
+      display_name: 
+      datatype: string
+      priority: 21
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Updating Change Request')
+      on_exit: update_provision_status(status => 'Updated Change Request')
+      on_error: update_provision_status(status => 'Error Updating Change Request')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: EmailOwner
+      display_name: 
+      datatype: string
+      priority: 22
+      owner: 
+      default_value: "/Infrastructure/VM/Provisioning/Email/MiqProvision_Complete?event=vm_provisioned"
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Emailing Owner')
+      on_exit: update_provision_status(status => 'Emailed Owner')
+      on_error: update_provision_status(status => 'Error Emailing Owner')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: EmailOthers
+      display_name: 
+      datatype: string
+      priority: 23
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Notifying Operations')
+      on_exit: update_provision_status(status => 'Notified Operations')
+      on_error: update_provision_status(status => 'Error Notifying Operations')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: Finished
+      display_name: 
+      datatype: string
+      priority: 24
+      owner: 
+      default_value: "/System/CommonMethods/StateMachineMethods/vm_provision_finished"
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: 
+      on_exit: 
+      on_error: 
+      max_retries: '100'
+      max_time: 

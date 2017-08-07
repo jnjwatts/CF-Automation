@@ -1,0 +1,193 @@
+---
+object_type: class
+version: 1.0
+object:
+  attributes:
+    description: Factory State Machines
+    display_name: 
+    name: VMProvision_VM
+    type: 
+    inherits: 
+    visibility: 
+    owner: 
+  schema:
+  - field:
+      aetype: state
+      name: CheckCRQ
+      display_name: 
+      datatype: string
+      priority: 1
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Checking Change Request')
+      on_exit: update_provision_status(status => 'Checked Change Request')
+      on_error: update_provision_status(status => 'Error Creating Checking Request')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: PreReconfiguration
+      display_name: 
+      datatype: string
+      priority: 2
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: 
+      on_exit: 
+      on_error: 
+      max_retries: 
+      max_time: 
+  - field:
+      aetype: state
+      name: SetVMSize
+      display_name: 
+      datatype: string
+      priority: 3
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Setting VM Size')
+      on_exit: update_provision_status(status => Set VM Size')
+      on_error: update_provision_status(status => 'Error Setting VM Size')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: AddDisks
+      display_name: 
+      datatype: string
+      priority: 4
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Adding VM Disks')
+      on_exit: update_provision_status(status => Added VM Disks')
+      on_error: update_provision_status(status => 'Error Adding VM Disks')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: AddNics
+      display_name: 
+      datatype: string
+      priority: 5
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Adding VM NICs')
+      on_exit: update_provision_status(status => Added VM NICs')
+      on_error: update_provision_status(status => 'Error Adding VM NICs')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: UpdateCRQ
+      display_name: 
+      datatype: string
+      priority: 6
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Updating Change Request')
+      on_exit: update_provision_status(status => 'Updated Change Request')
+      on_error: update_provision_status(status => 'Error Updating Change Request')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: EmailOwner
+      display_name: 
+      datatype: string
+      priority: 7
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Emailing Owner')
+      on_exit: update_provision_status(status => 'Emailed Owner')
+      on_error: update_provision_status(status => 'Error Emailing Owner')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: EmailOthers
+      display_name: 
+      datatype: string
+      priority: 8
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: update_provision_status(status => 'Notifying Operations')
+      on_exit: update_provision_status(status => 'Notified Operations')
+      on_error: update_provision_status(status => 'Error Notifying Operations')
+      max_retries: '100'
+      max_time: 
+  - field:
+      aetype: state
+      name: Finished
+      display_name: 
+      datatype: string
+      priority: 9
+      owner: 
+      default_value: 
+      substitute: true
+      message: create
+      visibility: 
+      collect: 
+      scope: 
+      description: 
+      condition: 
+      on_entry: 'update_Reconfiguration_status(status => ''Starting PreReconfiguration'') '
+      on_exit: 'update_Reconfiguration_status(status => ''PreReconfiguration succesful'') '
+      on_error: 'update_Reconfiguration_status(status => ''Error in PreReconfiguration'') '
+      max_retries: '100'
+      max_time: 

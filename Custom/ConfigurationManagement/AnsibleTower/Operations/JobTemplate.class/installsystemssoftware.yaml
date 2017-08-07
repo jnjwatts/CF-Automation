@@ -1,0 +1,18 @@
+---
+object_type: instance
+version: 1.0
+object:
+  attributes:
+    display_name: 
+    name: InstallSystemsSoftware
+    inherits: 
+    description: 
+  fields:
+  - job_template_name:
+      value: Install Support Software
+  - param1:
+      value: package_name_1=${/#miq_provision.get_option(:package_name_1)}
+  - param2:
+      value: package_name_2=screen
+  - param3:
+      value: package_name_3=ipa-client

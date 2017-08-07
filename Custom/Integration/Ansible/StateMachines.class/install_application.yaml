@@ -1,0 +1,12 @@
+---
+object_type: instance
+version: 1.0
+object:
+  attributes:
+    display_name: 
+    name: Install_Application
+    inherits: 
+    description: 
+  fields:
+  - execute:
+      value: " /Integration/Ansible/Methods/Install_Application"

@@ -1,0 +1,22 @@
+---
+object_type: instance
+version: 1.0
+object:
+  attributes:
+    display_name: 
+    name: CreateEPG
+    inherits: 
+    description: 
+  fields:
+  - job_template_name:
+      value: aci_epg
+  - param1:
+      value: 'epg_name=${/#miq_provision.get_option(:epg_name)} '
+  - param2:
+      value: 'bd_name=${/#miq_provision.get_option(:bd_name)} '
+  - param3:
+      value: 'vmm_domain_list=${/#miq_provision.get_option(:vmm_domain_list)} '
+  - param4:
+      value: 'anp_name=${/#miq_provision.get_option(:anp_name)} '
+  - param5:
+      value: 'tenant_name=${/#miq_provision.get_option(:tenant_name)} '
